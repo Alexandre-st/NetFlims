@@ -1,4 +1,4 @@
-import _, { clone } from "lodash";
+import _ from "lodash";
 const initialState = [];
 
 export const reducerUser = (state = initialState, action) => {
@@ -6,10 +6,12 @@ export const reducerUser = (state = initialState, action) => {
   switch (action.type) {
     case "INIT_USER":
       return action.payload;
+    case "UPDATE_USER":
+      return action.payload;
     case "ADD_BOOKMARK":
-      return {...cloneState , bookmarks:action.payload}
+      return { ...cloneState, bookmarks: action.payload };
     case "DELETE_BOOKMARK":
-      return {...cloneState , bookmarks:action.payload}
+      return { ...cloneState, bookmarks: action.payload };
     default:
       return state;
   }
