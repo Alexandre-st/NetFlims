@@ -6,7 +6,6 @@ import bookmark from "../assets/icons/icon-nav-bookmark.svg";
 import home from "../assets/icons/icon-nav-home.svg";
 import movies from "../assets/icons/icon-nav-movies.svg";
 import series from "../assets/icons/icon-nav-tv-series.svg";
-import profil from "../assets/icons/image-avatar.png";
 import logo from "../assets/icons/logo.svg";
 import Modal from "../components/Modal";
 
@@ -24,10 +23,6 @@ const Navbar = ({ setSessionStatus }) => {
     import.meta.env.VITE_PROJECT_URL,
     import.meta.env.VITE_ANON_API_KEY
   );
-  async function signOutUser() {
-    const { error } = await supabase.auth.signOut();
-    setSessionStatus("SIGNED_OUT");
-  }
 
   useEffect(() => {
     async function getUserData() {
@@ -47,12 +42,7 @@ const Navbar = ({ setSessionStatus }) => {
   }, []);
 
   return (
-    <section
-      className="navbar"
-      onMouseLeave={() => {
-        setCartIsOpen(false);
-      }}
-    >
+    <section className="navbar" onMouseLeave={() => {setCartIsOpen(false)}}>
       <nav className="navbar-container nav-container">
         <img src={logo} alt="" className="navbar-logo" />
         <div className="navbar-links">
@@ -90,10 +80,10 @@ const Navbar = ({ setSessionStatus }) => {
               <img
                 src={
                   user.avatar_url
-                    ? `https://tkegivgfbmgphxcmaomd.supabase.co/storage/v1/object/public/avatars/${user.id}/${user?.avatar_url}`
+                    ? `${import.meta.env.VITE_PROJECT_URL}/storage/v1/object/public/avatars/${user.id}/${user?.avatar_url}`
                     : "https://img-19.commentcamarche.net/AINHgQU6hzAaA-eacqk4lYu9IhE=/1500x/smart/d8c10e7fd21a485c909a5b4c5d99e611/ccmcms-commentcamarche/20456790.jpg"
                 }
-                alt="No pfp"
+                alt="No profile picture"
                 className="navbar-profil"
               />
             </button>
