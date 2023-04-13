@@ -36,7 +36,7 @@ VITE_PUBLIC_KEY=PUBLIC_EMAIL_KEY
 - [Swiper](https://swiperjs.com/)
 - [React-toastify](https://www.npmjs.com/package/react-toastify)
 
-## CONTRIBUTER
+## CONTRIBUTOR
 
 |                                                                  |                                                                      |                                                                                |
 | ---------------------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
