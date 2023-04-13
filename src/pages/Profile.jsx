@@ -24,7 +24,6 @@ const Profile = () => {
     import.meta.env.VITE_ANON_API_KEY
   );
 
-  // console.log(user.id);
   const handleSubmit = async (e) => {
     const { data, error } = await supabase
       .from("profiles")
@@ -54,7 +53,7 @@ const Profile = () => {
         const { data, error } = await supabase.storage
           .from("avatars")
           .list(user.id);
-          
+
         let tmp = [];
 
         data?.map((item) => {
